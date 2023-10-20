@@ -1,0 +1,25 @@
+ngb-rating{
+    color: #FFC107;
+    font-size: 30px;
+}
+
+.sigma_product-single-controls .sigma_add-to-favorite {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--thm-border);
+    margin: 0 10px 0 0;
+  }
+
+  .sigma_product-single-controls .sigma_add-to-favorite:hover {
+    background-color: #FCF7FF;
+  }
+
+  
+  .sigma_product-single-controls .sigma_add-to-favorite i {
+    font-size: 21px;
+    color: var(--thm-b-text);
+  }

@@ -1,0 +1,143 @@
+<app-header-two></app-header-two>
+
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+            <div class="sigma_subheader-inner">
+                <h1>Article Details</h1>
+            </div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/article" class="btn-link">Details</a>
+                </li>
+              
+                <li class="breadcrumb-item">
+                    <a routerLink="/addArticle" class="btn-link"> Article Details</a>
+                </li>
+                
+               
+            </ol>
+    
+       
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+
+
+<div class="sidebar-style-8">
+    <div class="section pb-0 sigma_post-details style-6" *ngFor="let article of articles">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="sigma_post-details-inner">
+                        <div class="entry-content">
+                            <a > <img class="gallery-thumb w-100" src="../../assets/img/article/{{article.imageArticle}}.jpg" [alt]="article.imageArticle" height="500" width="1200"></a>
+
+                                <div class="sigma_post-details-meta">
+                                <span> <i class="far fa-user"></i> By Admin
+                                </span>
+                                <span> <i class="far fa-calendar-alt"></i>{{article.descriptionArticle}}</span>
+                            </div>
+                            <h2 class="entry-title">{{article.nameArticle}} </h2>
+                            <div [innerHtml]="article.htmltext"></div>
+                        <h5 class="entry-content">{{article.descriptionArticle}} </h5>
+                        <ngb-rating [max]="5" (click)="GetRating()" [formControl]="ratingcontrol"></ngb-rating>
+                        <br>
+                        <ngb-rating [max]="5" [rate]="Finalrating" [readonly]="true"></ngb-rating>
+                            <br>
+                            <h5>Rating from {{ratingcount}} users</h5>
+
+                        <div class="comment-body" *ngFor="let comment of comments">
+                            <h5>{{comment.descriptionComment}}</h5>
+                         
+                            <a href="#" class="btn-link"> Reply </a>
+                        </div>
+                        <form #commentForm="ngForm" (ngSubmit)="onSubmit(commentForm.value, idArticle)">
+   
+  
+                            <label for="content">Contenu :</label>
+                            <textarea id="descriptionComment" name="descriptionComment" [(ngModel)]="formData.descriptionComment" required></textarea>
+                            <button type="submit">Ajouter un commentaire</button>
+
+                          </form>
+                          
+                          
+                        </div>
+                        <hr>
+                        
+                     
+                        <!-- Post Meta End -->
+                        <!-- Comments Start 
+                        <div class="section pb-0">
+                            <h3>Comments</h3>
+                            <div class="comments-list">
+                                <ul *ngFor="let review of item.reviews">
+                                    <!-- Data -->
+                                  <!--  <li class="comment-item">
+                                        <img [src]="user.image" [alt]="user.name"
+                                            *ngFor="let user of getAuthor(review.user)">
+                                        <div class="comment-body" *ngFor="let user of getAuthor(review.user)">
+                                            <h5>{{user.name}}</h5>
+                                            <span class="date"> {{review.commentdate}}</span>
+                                            <p>{{review.comment}}</p>
+                                            <a href="#" class="btn-link"> Reply </a>
+                                        </div>
+                                    </li>
+                                    <!-- Data -->
+   <!-- COMMENTAIRE                <li class="comment-item" *ngFor="let comment of comments">
+                                        
+                                        <div class="comment-body" *ngFor="let comment of comments">
+                                            <h5>Name</h5>
+                                            <span class="date"> {{comment.commentDescription}}</span>
+                                            <p>{{comment.commentDate}}</p>
+                                            <a href="#" class="btn-link"> Reply </a>
+                                        </div>
+                                    </li>
+                                    <!-- Data 
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <h3>Leave a Reply</h3>
+                            <div class="comment-form">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Your Name" class="form-control"
+                                                    name="fname" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="email" placeholder="Your E-mail" class="form-control"
+                                                    name="email" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" placeholder="Enter Comment here" value=""
+                                                    name="comment" rows="7" required></textarea>
+                                            </div>
+                                            <button type="submit" class="sigma_btn-custom" name="button">Post
+                                                Comment</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>  -->
+                        <!-- Comments End -->
+                    </div>
+                </div>
+                <!-- Sidebar Start -->
+                <div class="col-lg-4">
+                    <app-blog-sidebar></app-blog-sidebar>
+                </div>
+                <!-- Sidebar End -->
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

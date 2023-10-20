@@ -1,0 +1,88 @@
+<app-header-two></app-header-two>
+<!--breadcrumbs-->
+
+    <div class="sigma_subheader style-5 bg-gray">
+        <div class="container">
+            
+                <div class="sigma_subheader-inner">
+                    <h1>Our Donations</h1>
+                </div>
+
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a routerLink="/association" class="btn-link">All</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/myDonations" class="btn-link">MyDonations</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/addDonation" class="btn-link">New Donation</a>
+                    </li>
+                   
+                </ol>
+
+
+           
+        </div>
+        <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+        <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+        <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+    </div>
+
+<!--data-->
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+        
+            <div class="tab-content col-12" id="myTabContent">
+                <div class="row">
+                    <!-- Data -->
+                    <div class="col-lg-3 col-md-6" *ngFor="let donation of donations">
+                        <div class="sigma_product style-8">
+                            <div class="sigma_product-thumb">
+                               <!--<a routerLink="/product-single/{{item.id}}"><img [src]="item.image[0]"
+                                        [alt]="item.title"></a> -->
+                                        <a > <img src="../../../assets/img/donationAssociation/{{donation.imageDonation}}" [alt]="donation.imageDonation" height="140" width="400"></a>
+                                
+                            </div>
+                            <div class="sigma_product-body">
+                                <h5 class="sigma_product-title"> <a
+                                        >{{donation.nameDonation}}</a> </h5>
+                                <div class="sigma_rating">
+                                    <i>Déjà {{donation.nbAnneeAssociation}} années</i>
+                                </div>
+                                <div class="sigma_product-price">
+                                    <span>{{donation.quantityDonation}}$</span>
+                                    <!--<span *ngIf="item.discount">{{item.price | number:'1.2-2'}}$</span>-->
+                                </div> 
+                                <!-- Cart 
+                                <button 
+                                    class="sigma_btn btn-sm" (click)="onOpenModal(association, 'details')">View More
+                                </button> -->
+                                <button type="button" class="btn btn-success btn-link btn-sm btn-just-icon">
+                                    <i class="material-icons" (click)="assignRequestToDonation(myRequest,donation.idDonation, idAssociation)">TAKE</i>
+                                </button>
+                               
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Data -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--footer-->
+<app-footer></app-footer>
+
+

@@ -1,0 +1,18 @@
+<div class="sidebar mb-5">
+    <!-- Category Widget -->
+    <div class="widget widget-categories">
+        <h5 class="widget-title">Specialty</h5>
+        <ul>
+            <!-- Data -->
+            <li *ngFor="let item of category">
+                <a routerLink="/clinic/cat/{{item.id}}">
+                    {{item.title}}
+                </a>
+            </li>
+            <!-- Data -->
+        </ul>
+    </div>
+    <div class="widget p-0 border-0">
+        
+    </div>
+</div>

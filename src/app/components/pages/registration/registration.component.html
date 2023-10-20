@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+	<link rel="stylesheet" href="../../../../assets/login/css/style.css">
+
+	</head>
+	<body  class="img js-fullheight" style="background-image: url(../../../../assets/login/images/5.jpg);">
+		<section class="ftco-section">
+		<div class="container">
+		  <!--	<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section"></h2>
+				</div>
+			</div>-->
+			<div class="row justify-content-start mb-4" style="width: 2100px;" >
+				<div class="col-md-7 col-lg-4 login-wrap"  >
+					<div class=" p-0" >
+		      	<h3 class="mb-4 text-center" style="color: black;"><b>Registration</b></h3>
+		      	<form #formRegister="ngForm"  (ngSubmit)="userRegister()" class="contact-form form-validate">
+					<div class="row ">
+						<div class="col-sm-6 ">
+							<div class="form-group">
+								<label class="required-field" for="firstName" style="color: black;">First Name</label>
+								<input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName" placeholder="First Name"
+								>
+							</div>
+						</div>
+						<div class="col-sm-6 ">
+							<div class="form-group">
+								<label for="lastName" style="color: black;">Last Name</label>
+								<input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user.lastName" placeholder="Last Name">
+							</div>
+						</div>
+	  
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="required-field" for="email" style="color: black;">Email</label>
+								<input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" placeholder="example@gmail.com">
+						</div>
+						</div>
+						<div class="col-sm-6 ">
+							<div class="form-group">
+								<label class="required-field" for="pssword" style="color: black;">Password</label>
+								<input type="password" class="form-control" id="pssword" name="pssword" [(ngModel)]="user.password" placeholder="password">
+							</div>
+						</div>
+	  
+						<div class="col-sm-6 ">
+							<div class="form-group">
+								<label for="telephone" style="color: black;">Phone Number</label>
+								<input type="tel" class="form-control" id="telephone" name="telephone" [(ngModel)]="user.phoneNumber" placeholder="+216..">
+							</div>
+						</div>
+						<div class="col-sm-6 ">
+							<div class="form-group">
+								<label for="adress" style="color: black;">Address</label>
+								<input type="text" class="form-control" id="adress" name="adress" [(ngModel)]="user.address" placeholder="address">
+							</div>
+						</div> 
+						<div class="col-sm-6 ">
+							<div class="form-group">
+								<label for="city" style="color: black;">City</label>
+								<input type="text" class="form-control" id="city" name="city" [(ngModel)]="user.city" placeholder="city">
+							</div>
+						</div>
+	  
+						<div class="col-sm-6 ">
+							<div class="form-group">
+								<label for="birthDate" style="color: black;">Birth Date</label>
+								<input type="date" class="form-control" id="birthDate" name="birthDate" [(ngModel)]="user.birthDate" placeholder="date">
+							</div>
+						</div>
+	  
+						<div class="col-sm-6">
+							<label for="gender" class="col-sm-2 col-form-label" style="color: black;">Gender</label>
+							<div class="col-sm-10">
+							  <div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" id="female" [(ngModel)]="user.gender" name="gender" value="FEMALE">
+								<label class="form-check-label" for="female">Female</label>
+							  </div>
+							  <div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" id="male" [(ngModel)]="user.gender" name="gender" value="MALE">
+								<label class="form-check-label" for="male">Male</label>
+							  </div>
+							</div>
+						  </div>
+	  
+						  
+
+						  <div class="col-sm-6">
+							<div >
+								<label  for="inputState" class="form-label" style="color: black;">Role</label>
+								<select id="role" name="role" [(ngModel)]="user.role" style="background-color: transparent;">
+								<option value="Patient">Patient</option>
+								<option value="Donator">Donator</option>
+								<option value="AssociationMember">Association Member</option>
+								<option value="DrugsProvider">Drugs Provider</option> 
+							  </select>
+							</div>
+						  </div>
+						  
+
+                            
+
+						<!-- <div class="col-sm-6 ">
+							<div class="form-group">
+								<label for="birthDate" style="color: black;">Image</label>
+								<input type="file" accept="image/*" (change)="onImageSelected($event)" id="image_user" name="image_user" [(ngModel)]="user.image_user">
+								<img [src]="imgURL" height="200" *ngIf="imgURL">
+							</div> 
+						</div>-->
+	  
+					</div>
+					<br>
+					<div class=" text-center d-flex align-items-center">
+						<button type="submit" [disabled]="formRegister.invalid" class="form-control btn btn-primary" name="submit">Regitser</button>
+					  </div>
+				</form>
+				<br>
+	          <p class="w-100 text-center"> Have an account ? <a href="/login" style="color: green;">Login in</a> </p>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+	  <script src="../../../../assets/login/js/jquery.min.js"></script>
+  <script src="../../../../assets/login/js/popper.js"></script>
+  <script src="../../../../assets/login/js/bootstrap.min.js"></script>
+  <script src="../../../../assets/login/js/main.js"></script>
+
+</body>
+</html>
+
+
+<style>
+    .login-wrap {
+        backdrop-filter: blur(5px);
+        background-color: rgba(255, 255, 255, 0.5); /* change the alpha value to adjust the opacity */
+        padding: 20px;
+        border-radius: 10px; /* add rounded corners */
+
+    }
+</style>
+

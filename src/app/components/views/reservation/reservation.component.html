@@ -1,0 +1,105 @@
+<app-header-two></app-header-two>
+<!--breadcrumbs-->
+
+    <div class="sigma_subheader style-5 bg-gray">
+        <div class="container">
+            
+                <div class="sigma_subheader-inner">
+                    <h1>Our Reservations</h1>
+                </div>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a routerLink="/association" class="btn-link">All</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/myReservation" class="btn-link">myReservations</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/addReservation" class="btn-link">New Reservation</a>
+                    </li>
+                    
+                   
+                </ol>
+        
+           
+        </div>
+        <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+        <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+        <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+    </div>
+
+<!--data-->
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+         
+            <div class="tab-content col-12" id="myTabContent">
+                <div class="row">
+                    <!-- Data -->
+                    <div class="col-lg-3 col-md-6" *ngFor="let reservation of reservations">
+                        <div class="sigma_product style-8">
+                            <div class="sigma_product-thumb">
+                               <!--<a routerLink="/product-single/{{item.id}}"><img [src]="item.image[0]"
+                                        [alt]="item.title"></a> -->
+                                     <!--   <a > <img src="../../../assets/img/donationAssociation/{{association.logoAssocation}}" [alt]="association.logoAssocation" height="140" width="400"></a> -->
+                                
+                            </div>
+                            <div class="sigma_product-body">
+                                <h5 class="sigma_product-title"> <a
+                                        >{{reservation.codeReservation}}</a> </h5>
+                                <div class="sigma_rating">
+                                    <i> {{reservation.idReservation}} </i>
+                                </div>
+                                <div class="sigma_product-price">
+                                    <span>{{reservation.dateReservation}}</span>
+                                    <!--<span *ngIf="item.discount">{{item.price | number:'1.2-2'}}$</span>-->
+                                </div> 
+
+                        
+                              
+                                <!-- Cart 
+                                <button 
+                                    class="sigma_btn btn-sm" (click)="onOpenModal(association, 'details')">View More
+                                </button> 
+                                <button type="button" (click)="onOpenModal(association, 'details')" class="btn btn-success btn-link btn-sm btn-just-icon">
+                                    <i class="material-icons">View More</i>
+                                </button>-->
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Data -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+ <!-- Detail Donation Modal 
+ <div class="modal fade" id="detailAssociationModal" tabindex="-1" role="dialog" aria-labelledby="detailAssociationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content" style="width: 700px;">
+        <div class="modal-header">
+           <h5 class="modal-title" id="detailAssociationModalLabel" style=" color: darkgreen;font-size: 20px;text-align: center;"> show Association : {{detailsAssociation?.idAssociation }} </h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <h1>Hello bawela</h1>
+        </div>
+     </div>
+  </div>
+</div>
+-->
+
+
+
+<!--footer-->
+<app-footer></app-footer>

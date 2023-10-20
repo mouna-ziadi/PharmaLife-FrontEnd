@@ -1,0 +1,107 @@
+<div class="sidebar-style-8">
+    <div class="section pb-0 sigma_post-details style-6" *ngFor="let item of blogdetails">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="sigma_post-details-inner">
+                        <div class="entry-content">
+                            <a href="{{item.image[0]}}" class="gallery-thumb w-100">
+                                <img [src]="item.image[0]" [alt]="item.title" class="w-100">
+                            </a>
+                            <div class="sigma_post-details-meta">
+                                <span *ngFor="let author of getAuthor(item.author)"> <i class="far fa-user"></i> By
+                                    {{author.name}}</span>
+                                <span> <i class="far fa-calendar-alt"></i> {{item.postdate}}</span>
+                            </div>
+                            <h2 class="entry-title">{{item.title}}</h2>
+                            <div [innerHtml]="item.htmltext"></div>
+                        </div>
+                        <hr>
+                        <!-- Post Meta Start -->
+                        <div class="sigma_post-details-meta">
+                            <div class="sigma_post-details-meta-item sigma_post-share">
+                                <h5 class="mb-0">Share:</h5>
+                                <ul class="sigma_sm ml-4">
+                                    <!-- Data -->
+                                    <li *ngFor="let social of socialShare(item.title)">
+                                        <a href="javascript:void(0)" (click)="openSocialPopup(social)">
+                                            <i [class]="social.iconClass"></i>
+                                        </a>
+                                    </li>
+                                    <!-- Data -->
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Post Meta End -->
+                        <!-- Comments Start -->
+                        <div class="section pb-0">
+                            <h3>Comments</h3>
+                            <div class="comments-list">
+                                <ul *ngFor="let review of item.reviews">
+                                    <!-- Data -->
+                                    <li class="comment-item">
+                                        <img [src]="user.image" [alt]="user.name"
+                                            *ngFor="let user of getAuthor(review.user)">
+                                        <div class="comment-body" *ngFor="let user of getAuthor(review.user)">
+                                            <h5>{{user.name}}</h5>
+                                            <span class="date"> {{review.commentdate}}</span>
+                                            <p>{{review.comment}}</p>
+                                            <a href="#" class="btn-link"> Reply </a>
+                                        </div>
+                                    </li>
+                                    <!-- Data -->
+                                    <li class="comment-item" *ngFor="let review of review.replies">
+                                        <img [src]="user.image" [alt]="user.name"
+                                            *ngFor="let user of getAuthor(review.user)">
+                                        <div class="comment-body" *ngFor="let user of getAuthor(review.user)">
+                                            <h5>{{user.name}}</h5>
+                                            <span class="date"> {{review.commentdate}}</span>
+                                            <p>{{review.comment}}</p>
+                                            <a href="#" class="btn-link"> Reply </a>
+                                        </div>
+                                    </li>
+                                    <!-- Data -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <h3>Leave a Reply</h3>
+                            <div class="comment-form">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Your Name" class="form-control"
+                                                    name="fname" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="email" placeholder="Your E-mail" class="form-control"
+                                                    name="email" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" placeholder="Enter Comment here" value=""
+                                                    name="comment" rows="7" required></textarea>
+                                            </div>
+                                            <button type="submit" class="sigma_btn-custom" name="button">Post
+                                                Comment</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Comments End -->
+                    </div>
+                </div>
+                <!-- Sidebar Start -->
+                <div class="col-lg-4">
+                    <app-blog-sidebar></app-blog-sidebar>
+                </div>
+                <!-- Sidebar End -->
+            </div>
+        </div>
+    </div>
+</div>

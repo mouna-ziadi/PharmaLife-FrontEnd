@@ -1,0 +1,52 @@
+<app-header-two></app-header-two>
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>Send reclamation</h1>
+        </div>
+
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Add Reclamation</div>
+                <div class="card-body">
+                    <form [formGroup]="reclamationForm">
+                        <div class="form-group">
+                            <label for="product">Product:</label>
+                            <input type="text" class="form-control" id="product" readonly value="{{oneProduct.nameProduct}}">
+                                
+                        </div>
+                
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="description" name="description" formControlName="description" [(ngModel)]="r.descriptionReclamation" ></textarea>
+                   
+                </div>
+                <div *ngIf="reclamationForm.controls['description'].invalid && (reclamationForm.controls['description'].dirty || reclamationForm.controls['description'].touched)" class="alert alert-danger">
+                    <div *ngIf="reclamationForm.controls['description'].errors?.required">
+                      Description is required.
+                    </div>
+                    <div *ngIf="reclamationForm.controls['description'].errors?.pattern">
+                      Please enter a valid description.
+                    </div>
+                  </div>
+                  
+               
+                <button [disabled]="reclamationForm.invalid" type="submit" class="btn btn-primary" (click)="AddReclamation()">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<app-footer></app-footer>

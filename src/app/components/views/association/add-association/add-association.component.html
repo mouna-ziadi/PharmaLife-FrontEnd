@@ -1,0 +1,293 @@
+<app-header-two></app-header-two>
+<!--breadcrumbs-->
+
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>Add Association</h1>
+        </div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/association" class="btn-link">All</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/myAssociation" class="btn-link">MyAssociations</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/addAssociation" class="btn-link">New Association</a>
+            </li>
+
+
+        </ol>
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+
+<!--data-->
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+
+            <!---liste des items-->
+
+            <div _ngcontent-hii-c4="" class="col-lg-4">
+                <div _ngcontent-hii-c4="" class="sigma_accordion style-13">
+                    <div _ngcontent-hii-c4="" class="sigma_tab-item style-4">
+                        <ul _ngcontent-sdw-c4="" class="nav nav-tabs" id="myTab" ngbnav="" role="tablist">
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="1" class="nav-item">
+                                <a _ngcontent-sdw-c4="" href="" ngbnavlink="" id="ngb-nav-0" class="nav-link" role="tab"
+                                    aria-selected="true" aria-disabled="false" aria-controls="ngb-nav-0-panel"
+                                    routerLink="/myAssociation"> My
+                                    Associations
+                                    <i _ngcontent-sdw-c4="" class="fal fa-chevron-right"></i></a>
+                                <!---->
+                            </li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="2" class="nav-item">
+                                <a _ngcontent-sdw-c4="" href="" ngbnavlink="" id="ngb-nav-1" class="nav-link active"
+                                    role="tab" aria-selected="false" aria-disabled="false"
+                                    routerLink="/addAssociation">New
+                                    Association
+                                    <i _ngcontent-sdw-c4="" class="fal fa-chevron-right"></i></a><!---->
+                            </li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="3" class="nav-item"><a _ngcontent-sdw-c4="" href=""
+                                    ngbnavlink="" id="ngb-nav-2" class="nav-link" role="tab" aria-selected="false"
+                                    aria-disabled="false" routerLink="/myRequest"> My Requests <i _ngcontent-sdw-c4=""
+                                        class="fal fa-chevron-right"></i>
+                                </a><!----></li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="4" class="nav-item"><a _ngcontent-sdw-c4="" href=""
+                                    ngbnavlink="" id="ngb-nav-3" class="nav-link" role="tab" aria-selected="false"
+                                    aria-disabled="false" routerLink="/"> New Request <i _ngcontent-sdw-c4=""
+                                        class="fal fa-chevron-right"></i>
+                                </a><!----></li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="5" class="nav-item"><a _ngcontent-sdw-c4="" href=""
+                                    ngbnavlink="" id="ngb-nav-4" class="nav-link" role="tab" aria-selected="false"
+                                    aria-disabled="false" routerLink="/contactDonations"> Contact <i
+                                        _ngcontent-sdw-c4="" class="fal fa-chevron-right">
+
+                                    </i></a><!----></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <!--Formulaire D'ajout d'une Donation-->
+
+                <form (ngSubmit)="onSubmit()">
+                    <div class="sigma_form style-7">
+                        <div class="form-block">
+                            <h4>New Association:</h4>
+
+                            <div class="row">
+
+
+                                <div class="col-lg-6">
+
+                                    <input placeholder="associationName" style="max-width: 435px;" type="text"
+                                        class="form-control" id="name" [(ngModel)]="association.associationName"
+                                        name="name" required #nameA="ngModel" pattern="^[^_!?:;*+-/]*$" minlength="3"
+                                        maxlength="50">
+
+                                    <div *ngIf="nameA.invalid && (nameA.touched || nameA.dirty)">
+                                        <div class="alert alert-danger" *ngIf="nameA.errors?.required">Name Association
+                                            field is required</div>
+                                        <div class="alert alert-danger" *ngIf="nameA.errors?.pattern">Name Association
+                                            cannot contain caracters ! *
+                                            / ? : ; - +</div>
+                                        <div class="alert alert-danger" *ngIf="nameA.errors?.minlength">min length is
+                                            3 caracters</div>
+                                        <div class="alert alert-danger" *ngIf="nameA.errors?.maxlength">max
+                                            length is 50 caracters</div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!--<div class="col-lg-6">
+                                    <label>Name <span
+                                        class="text-danger">*</span>
+                                    </label>
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" id="associationName"
+                                            [(ngModel)]="association.associationName" placeholder="Association Name"
+                                            name="associationName">
+                                    </div>
+                                </div>-->
+
+                                <div class="col-lg-6">
+                                    <!-- <label>Logo <span
+                                        class="text-danger">*</span>
+                                    </label>-->
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" id="logoAssocation"
+                                            [(ngModel)]="association.logoAssocation" placeholder="Logo"
+                                            name="logoAssocation">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <!--<label>Email <span
+                                        class="text-danger">*</span>
+                                    </label>-->
+                                    <div class="form-group">
+
+                                        <input type="email" class="form-control" id="emailAssocation"
+                                            [(ngModel)]="association.emailAssocation" placeholder="Email"
+                                            name="emailAssocation">
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="col-lg-6">
+                                    <!--<label>Phone Number <span
+                                        class="text-danger">*</span>
+                                    </label>-->
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" id="phoneNumberAssocation"
+                                            [(ngModel)]="association.phoneNumberAssocation" placeholder="Phone"
+                                            name="phoneNumberAssocation">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6">
+
+                                    <input placeholder="adressAssociation" style="max-width: 435px;" type="text"
+                                        class="form-control" id="name" [(ngModel)]="association.adressAssociation"
+                                        name="adressAssociation" required #adressAssociationA="ngModel" pattern="^[^_!?:;*+-/]*$">
+
+                                    <div *ngIf="adressAssociationA.invalid && (adressAssociationA.touched || adressAssociationA.dirty)">
+                                        <div class="alert alert-danger" *ngIf="adressAssociationA.errors?.required">Add Association
+                                            field is required</div>
+                                        <div class="alert alert-danger" *ngIf="adressAssociationA.errors?.pattern">Add Association
+                                            cannot contain caracters ! *
+                                            / ? : ; - +</div>
+                                       
+                                    </div>
+                                </div>
+
+                               
+
+                                <div class="col-lg-6">
+                                    <!--<label>Created Date <span
+                                        class="text-danger">*</span>
+                                    </label>-->
+                                    <div class="form-group">
+
+                                        <input type="date" class="form-control" id="dateAssociation"
+                                            [(ngModel)]="association.dateAssociation" placeholder="Created Date"
+                                            name="dateAssociation">
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group col-xl-12">
+
+                                    <!--<label>Country <span
+                                            class="text-danger">*</span>
+                                    </label>-->
+
+                                    <select class="form-control" id="countryAssocation"
+                                        [(ngModel)]="association.countryAssocation" name="countryAssocation"
+                                        placeholder="select country">
+                                        <option>select country</option>
+                                        <option value="Tunisie" ng-reflect-value="Tunisie">
+                                            Tunisie</option>
+                                        <option value="France" ng-reflect-value="France">France
+                                        </option>
+                                        <option value="Italy" ng-reflect-value="Italy">Italy
+                                        </option>
+                                        <option value="Algeria" ng-reflect-value="Algeria">Algeria
+                                        </option>
+                                        <option value="Jordan" ng-reflect-value="Jordan">Jordan
+                                        </option>
+                                        <option value="Iraq" ng-reflect-value="Iraq">Iraq
+                                        </option>
+                                        <option value="Egypt" ng-reflect-value="Egypt">Egypt
+                                        </option>
+                                        <option value="Kuwait" ng-reflect-value="Kuwait">
+                                            Kuwait</option>
+                                        <option value="Lebanon" ng-reflect-value="Lebanon">
+                                            Lebanon</option>
+                                        <option value="Libyan" ng-reflect-value="Libyan">
+                                            Libyan</option>
+                                        <option value="Morocco" ng-reflect-value="Morocco">Morocco
+                                        </option>
+                                        <option value="Serbia" ng-reflect-value="Serbia">
+                                            Serbia</option>
+                                    </select>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-block">
+
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="descriptionAssocation"
+                                            placeholder="Description" name="descriptionAssocation"
+                                            [(ngModel)]="association.descriptionAssocation">
+                                    </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mt-2"><input formcontrolname="condition" id="checkbox"
+                                type="checkbox" value="accept" ng-reflect-name="condition"
+                                class="ng-untouched ng-pristine ng-invalid"><label class="mb-0" for="checkbox">I accept
+                                <a href="#">Terms</a> and <a href="#">conditions</a> and general
+                                policy</label>
+                        </div>
+
+
+                        <!--Button-->
+                        <li class="d-flex align-items-center justify-content-between">
+                            <button class="sigma_btn btn-block btn-sm mt-4" type="submit">
+                                Confirm and Add <i class="fal fa-arrow-right ml-3"></i>
+                            </button>
+                        </li>
+
+
+
+                    </div>
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!--footer-->
+<app-footer></app-footer>

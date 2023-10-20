@@ -1,0 +1,99 @@
+<app-header-two></app-header-two>
+<!--breadcrumbs-->
+
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+        
+            <div class="sigma_subheader-inner">
+                <h1>Association Detail</h1>
+            </div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/" class="btn-link">Esprit</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">PharmaLIFE</li>
+            </ol>
+       
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+
+
+
+
+<!--Data-->
+
+<div class="section section-padding sigma_product-single">
+    <div class="container">
+        <!-- Coupon Code Start -->
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="form-group mb-0">
+                    <div class="input-group mb-0">
+                        <input type="text" class="form-control" placeholder="Enter Coupon Code"
+                            aria-label="Coupon Code">
+                        <div class="input-group-append">
+                            <button class="sigma_btn-custom shadow-none" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Coupon Code End -->
+        <!-- Cart Table Start -->
+        <table class="sigma_responsive-table">
+            <thead>
+                <tr> 
+                    <th class="remove-item"></th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Satuts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data -->
+                <tr *ngFor = "let request of requests" >
+                    <td class="remove">
+                        <button type="button" class="sigma_close remove-from-cart">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </td>
+                    <td data-title="Product">
+                        <div class="sigma_cart-product-wrapper">
+                            <!--<img [src]="item.image[0]" [alt]="item.title">-->
+                            <div class="sigma_cart-product-body">
+                                <h6> <a>{{request.nameRequest}}</a> </h6>
+                                <p>{{request.dateRequest}} updatedAt</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-title="Price"> <strong>{{request.requestType}}$</strong> </td>
+                    <td class="quantity" data-title="Quantity">
+                        <div class="qty">
+                            <span class="qty-subtract"><i
+                                    class="fa fa-minus"></i></span>
+                            <input type="text" name="qty" value="{{request.statusRequest}}" readonly>
+                            <span class="qty-add"><i class="fa fa-plus"></i></span>
+                        </div>
+                    </td> 
+                    <td data-title="Total"> <strong>{{request.descriptionRequest}}</strong> </td>
+                </tr>
+                <!-- Data -->
+            </tbody>
+        </table>
+        <!-- Cart Table End -->
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+<app-footer></app-footer>

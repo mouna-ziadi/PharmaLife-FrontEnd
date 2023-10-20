@@ -1,0 +1,169 @@
+
+<app-header-two></app-header-two>
+<!--breadcrumbs-->
+
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>PharmaLIFE Commmands</h1>
+        </div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/" class="btn-link">All</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/myCommands" class="btn-link">MyCommands</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/product-management" class="btn-link">Product</a>
+            </li>
+
+        </ol>
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+
+<!--data-->
+<div class="sidebar-style-9">
+    <div class="section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+
+
+                    <div class="sidebar mb-5">
+                        <!-- Category Widget -->
+                        <div class="widget widget-categories">
+                            <h5 class="widget-title">My Commands</h5>
+                            <ul>
+                                <!-- Data -->
+                                <li>
+                                    <a routerLink="/">All</a>
+                                    <a routerLink="/myCommands">My Commands</a>
+                                    <a routerLink="/product-management">Product</a>
+                                </li>
+                                <!-- Data -->
+                            </ul>
+                        </div>
+                        <div class="widget p-0 border-0">
+                            <div class="sigma_contact-map">
+                                <iframe title="map"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9914406081493!2d2.292292615201654!3d48.85837360866272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEiffel%20Tower!5e0!3m2!1sen!2sin!4v1571115084828!5m2!1sen!2sin"
+                                    height="300" allowfullscreen="">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                    <!-- Data -->
+
+                    
+                    <div _ngcontent-hii-c4="" class="col-lg-8">
+                        <!--Formulaire D'ajout d'un Command-->
+        
+                        <form (ngSubmit)="onSubmit()">
+                            <div class="sigma_form style-7">
+                                <div class="form-block">
+                                    <h4>New Command:</h4>
+        
+                                    <div class="row">
+                                      
+                                        
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+        
+                                                <input type="date" class="form-control" id="dateLivraison"
+                                                    [(ngModel)]="command.dateLivraison" placeholder="dateLivraison" name="dateLivraison">
+                                            </div>
+                                        </div>
+        
+                                        
+        
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+        
+                                                <input type="date" class="form-control" id="dateCommand"
+                                                    [(ngModel)]="command.dateCommand" placeholder="dateCommand"
+                                                    name="dateCommand">
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+        
+                                                <input type="text" class="form-control" id="shippingAddressCommand"
+                                                    [(ngModel)]="command.shippingAddressCommand" placeholder="shippingAddressCommand"
+                                                    name="shippingAddressCommand">
+                                            </div>
+                                        </div>
+        
+        
+        
+                                    </div>
+        
+                                </div>
+        
+                                <div class="form-block">
+                                    <div class="row">
+        
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="notes"
+                                                    placeholder="notes" name="notes"
+                                                    [(ngModel)]="command.notes">
+                                            </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="d-flex align-items-center mt-2"><input formcontrolname="condition" id="checkbox"
+                                        type="checkbox" value="accept" ng-reflect-name="condition"
+                                        class="ng-untouched ng-pristine ng-invalid"><label class="mb-0" for="checkbox">I accept
+                                        <a href="#">Terms</a> and <a href="#">conditions</a> and general
+                                        policy</label>
+                                </div>
+        
+        
+                                <!--Button-->
+                                <li class="d-flex align-items-center justify-content-between">
+                                    <button class="sigma_btn btn-block btn-sm mt-4" type="submit">
+                                        Confirm and Add <i class="fal fa-arrow-right ml-3"></i>
+                                    </button>
+                                </li>
+        
+        
+        
+                            </div>
+                        </form>
+        
+        
+        
+        
+        
+                    </div>
+
+
+                   
+
+                    
+                    
+                    
+                    <!-- Data -->
+                   
+               
+            </div>
+        </div>
+    </div>
+</div> 
+<!--data-->
+
+<!--footer-->
+<app-footer></app-footer>

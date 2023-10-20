@@ -1,0 +1,197 @@
+<app-header-two></app-header-two>
+<!--breadcrumbs-->
+
+    <div class="sigma_subheader style-5 bg-gray">
+        <div class="container">
+
+                <div class="sigma_subheader-inner">
+                    <h1>Our Article</h1>
+                </div>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a routerLink="/article" class="btn-link">All</a>
+                    </li>
+                  
+                    <li class="breadcrumb-item">
+                        <a routerLink="/addArticle" class="btn-link">New Article</a>
+                    </li>
+                    
+                   
+                </ol>
+        
+           
+        </div>
+        <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+        <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+        <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+    </div>
+
+<!--data-->
+
+<!--<div class="section">
+    <div class="container">
+        <div class="row">
+         
+            <div class="tab-content col-12" id="myTabContent">
+                <div class="row">
+$                    <div class="col-lg-3 col-md-6" *ngFor="let article of articles">
+                        <div class="sigma_product style-8">
+                            <div class="sigma_product-thumb">
+                               <!--<a routerLink="/product-single/{{item.id}}"><img [src]="item.image[0]"
+                                        [alt]="item.title"></a> 
+                                        <a > <img src="../../assets/img/article/{{article.imageArticle}}.png" [alt]="article.imageArticle" height="140" width="400"></a>
+                                        <div class="sigma_team-controls">
+                                            <a href="javascript:void(0)" [ngClass]="article.favorite ? 'active':''"
+                                                (click)="favoriteTrigger(article)">
+                                                <i class="fal fa-heart"></i>
+                                            </a>
+                                        </div>
+                            </div>
+                            <div class="sigma_product-body">
+                                <h5 class="sigma_product-title"> <a
+                                        >{{article.nameArticle}}</a> </h5>
+                                <div class="sigma_rating">
+                                    <i> {{article.descriptionArticle}} </i>
+                                </div>
+                                <div class="sigma_product-price">
+                                    <span>{{article.dateArticle}}</span>
+                                    <!--<span *ngIf="item.discount">{{item.price | number:'1.2-2'}}$</span>
+                                </div> 
+                                <ngb-rating [max]="5" (click)="GetRating()" [formControl]="ratingcontrol"></ngb-rating>
+                               
+
+                                <!-- Cart 
+                                <button 
+                                    class="sigma_btn btn-sm" (click)="onOpenModal(association, 'details')">View More
+                                </button> 
+                                <button type="button" (click)="onOpenModal(article, 'details')" class="btn btn-success btn-link btn-sm btn-just-icon">
+                                    <i class="material-icons">View More</i>
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Data 
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+ <!-- Detail Donation Modal 
+ <div class="modal fade" id="detailArticleModal" tabindex="-1" role="dialog" aria-labelledby="detailArticleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content" style="width: 700px;">
+        <div class="modal-header">
+           <h5 class="modal-title" id="detailArticleModalLabel" style=" color: darkgreen;font-size: 20px;text-align: center;"> show Article : {{detailsArticle?.idArticle }} </h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <h1>Hello bawela</h1>
+        </div>
+     </div>
+  </div>
+</div>
+-->
+
+<!-- <h1>Input Rating</h1>
+<ngb-rating [max]="5" (click)="GetRating()" [formControl]="ratingcontrol"></ngb-rating>
+-->
+
+<div class="sidebar-style-8">
+    <div class="section section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Data -->
+                <app-clinic-sidebar></app-clinic-sidebar>
+
+                <div class="col-lg-4 col-md-6"
+                
+                    *ngFor="let article of articles ">
+                    <!--| paginate: { itemsPerPage: 2, currentPage: page }-->
+
+                    <article class="sigma_post style-15">
+                        <div class="sigma_team-thumb">
+                            <a > <img src="../../assets/img/article/{{article.imageArticle}}.jpg" [alt]="article.imageArticle" height="140" width="400"></a>
+
+                            <div class="sigma_team-controls">
+                                <a href="javascript:void(0)" [ngClass]="article.favorite ? 'active':''"
+                                    (click)="favoriteTrigger(article)">
+                                    <i class="fal fa-heart"></i>
+                                </a>
+                            </div>
+                            <!--<a routerLink="/product-single/{{item.id}}"><img [src]="item.image[0]"
+                                     [alt]="item.title"></a> -->
+                                     
+                         </div>
+                         
+                        <div class="sigma_post-meta is-absolute">
+                            <a  class="sigma_post-date">
+                                {{article.dateArticle}}
+                            </a>
+                        </div>
+                        <div class="sigma_post-body">
+                            <div class="sigma_post-content">
+                                <div class="sigma_post-meta">
+                                    <ul>
+                                        <!-- Data -->
+                                        <li >
+                                            <a>
+                                                <i class="fal fa-user"></i>
+                                               Admin
+                                            </a>
+                                        </li>
+                                        <!-- Data -->
+                                        <li>
+                                            <a >
+                                                <i class="fal fa-folder-open"></i>
+                                                News
+                                            </a>
+                                        </li>
+                                        <!-- Data -->
+                                    </ul>
+                                </div>
+                                <h5>
+                                    <a>{{article.nameArticle}} </a>
+                                </h5>
+
+                                <h5>
+                                    <a>{{article.descriptionArticle}} </a>
+                                </h5>
+                                <ngb-rating [max]="5" (click)="GetRating()" [formControl]="ratingcontrol"></ngb-rating>
+
+                            </div>
+                            <a routerLink="/article-detail/{{article.idArticle}}" class="btn-link" >
+                                Read more
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                <!-- Data -->
+            </div>
+            <!-- Pagination 
+            <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+            </pagination-controls>-->
+            <!-- Pagination -->
+        </div>
+    </div>
+</div>
+
+<!--
+<h1>OutPut Rating</h1>
+<ngb-rating [max]="5" [rate]="Finalrating" [readonly]="true"></ngb-rating>
+<h2>{{Finalrating}}</h2>
+<h2>Rating from {{ratingcount}} users</h2>
+
+-->
+
+
+<!--footer-->
+<app-footer></app-footer>

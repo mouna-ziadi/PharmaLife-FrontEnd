@@ -1,0 +1,53 @@
+<!--<app-header-two></app-header-two>
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>Send Comment</h1>
+        </div>
+
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Add Comment</div>
+                <div class="card-body">
+                    <form [formGroup]="commentForm">
+                        <div class="form-group">
+                            <label for="article">Article:</label>
+                            <input type="text" class="form-control" id="article" readonly value="{{oneArticle.nameArticle}}">
+                                
+                        </div>
+                
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="descriptionComment" name="descriptionComment" formControlName="descriptionComment" [(ngModel)]="cc.descriptionComment" ></textarea>
+                   
+                </div> -->
+                <form [formGroup]="commentForm">
+                <div *ngIf="commentForm.controls['descriptionComment'].invalid && (commentForm.controls['descriptionComment'].dirty || commentForm.controls['descriptionComment'].touched)" class="alert alert-danger">
+                    <div *ngIf="commentForm.controls['descriptionComment'].errors?.required">
+                      Description is required.
+                    </div>
+                    <div *ngIf="commentForm.controls['descriptionComment'].errors?.pattern">
+                      Please enter a valid description.
+                    </div>
+                  </div>
+                  
+               
+            <!--    <button [disabled]="commentForm.invalid" type="submit" class="btn btn-primary" (click)="AddComment()">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<app-footer></app-footer> -->

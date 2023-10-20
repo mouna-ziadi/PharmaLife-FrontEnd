@@ -1,0 +1,113 @@
+<!-- Mobile Menu -->
+<aside class="sigma_aside" [ngClass]="navMethod ? 'aside-open':''">
+    <div class="sigma_close aside-trigger" (click)="toggleNav()">
+        <span></span>
+        <span></span>
+    </div>
+    <app-mobile-menu></app-mobile-menu>
+</aside>
+<div class="sigma_aside-overlay aside-trigger" (click)="toggleNav()"></div>
+<!-- Mobile Menu -->
+<!-- Header -->
+<header class="sigma_header style-5 bg-transparent shadow-none can-sticky">
+    <div class="container">
+        <div class="sigma_header-top d-none d-md-block">
+            <div class="sigma_header-top-inner">
+                <div class="sigma_header-top-links">
+                    <ul class="sigma_header-top-nav">
+                        <li>
+                            <a href="#">
+                                <i class="fal fa-envelope"></i>
+                                pharmalife.cloudy@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fal fa-map-marker-alt"></i>
+                                La petite Ariana, Ariana, 2081
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sigma_header-top-contacts">
+                    <ul class="sigma_header-top-nav">
+                        <li> <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li> <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li> <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li> <a href="#"><i class="fab fa-google"></i></a>
+                        </li>
+                        <li>
+                            <a >
+                                Welcome, {{username}} ! 
+                            </a>
+                        </li>
+                        <li><a href="userProfile"><i class="fas fa-solid fa-user" title="User Profile"></i></a>
+                        </li>
+                        <li><a><i class="fas fa-sign-out-alt" (click)="onLogout()" title="Logout"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sigma_header-middle pl-4 pr-4">
+            <div class="navbar">
+                <div class="sigma_logo-wrapper">
+                    <a routerLink="/" class="sigma_logo">
+                        <img src="assets/img/logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="navbar-nav">
+                    <!-- Data -->
+                    <li [ngClass]="item.child ? 'menu-item menu-item-has-children':'menu-item'"
+                        *ngFor="let item of navigation">
+                        <a href="javascript:void(0)" *ngIf="item.child">{{item.linkText}}</a>
+                        <a routerLink="{{item.link}}" *ngIf="!item.child">{{item.linkText}}</a>
+                        <ul class="sub-menu" *ngIf="item.child">
+                            <li [ngClass]="item.child ? 'menu-item menu-item-has-children':'menu-item'"
+                                *ngFor="let item of item.submenu">
+                                <a href="javascript:void(0)" *ngIf="item.child">{{item.linkText}}</a>
+                                <a routerLink="{{item.link}}" *ngIf="!item.child">{{item.linkText}}</a>
+                                <ul class="sub-menu" *ngIf="item.child">
+                                    <li [ngClass]="item.child ? 'menu-item menu-item-has-children':'menu-item'"
+                                        *ngFor="let item of item.submenu">
+                                        <a routerLink="{{item.link}}">{{item.linkText}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Data -->
+                </ul>
+                <div class="sigma_header-controls style-2">
+                    <ul class="sigma_header-controls-inner">
+                        <li class="cart-trigger header-controls-item d-none d-sm-block">
+                            <a routerLink="/cart" class="sigma_header-control-cart" title="Your Cart">
+                                <i class="far fa-shopping-basket"></i>
+                            </a>
+                            <ul class="sigma_cart-dropdown">
+                                <app-small-cart></app-small-cart>
+                            </ul>
+                        </li>
+                        <li class="d-none d-sm-block">
+                            <a routerLink="/shop-grid" class="sigma_btn btn-sm">
+                                Order Here
+                                <i class="fal fa-plus ml-3"></i>
+                            </a>
+                        </li>
+                        <li class="aside-toggle aside-trigger" (click)="toggleNav()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header -->

@@ -1,0 +1,152 @@
+<app-header-two></app-header-two>
+<!--breadcrumbs-->
+
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>My Requests</h1>
+        </div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/association" class="btn-link">All</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/myAssociation" class="btn-link">MyAssociations</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/addAssociation" class="btn-link">New Association</a>
+            </li>
+
+
+        </ol>
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+
+<!--data-->
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+            <!---liste des items-->
+
+            <div class="col-lg-4">
+                <div class="sigma_accordion style-13">
+                    <div class="sigma_tab-item style-4">
+                        <ul class="nav nav-tabs" id="myTab" ngbnav="" role="tablist">
+                            <li ng-reflect-_id="1" class="nav-item">
+                                <a href="" ngbnavlink="" id="ngb-nav-0" class="nav-link " role="tab"
+                                    aria-selected="true" aria-disabled="false" aria-controls="ngb-nav-0-panel"
+                                    routerLink="/myAssociation"> My
+                                    Associations
+                                    <i _ngcontent-sdw-c4="" class="fal fa-chevron-right"></i></a>
+                                <!---->
+                            </li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="2" class="nav-item">
+                                <a _ngcontent-sdw-c4="" href="" ngbnavlink="" id="ngb-nav-1" class="nav-link "
+                                    role="tab" aria-selected="false" aria-disabled="false"
+                                    routerLink="/addAssociation">New
+                                    Association
+                                    <i _ngcontent-sdw-c4="" class="fal fa-chevron-right"></i></a><!---->
+                            </li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="3" class="nav-item active"><a _ngcontent-sdw-c4=""
+                                    href="" ngbnavlink="" id="ngb-nav-2" class="nav-link active" role="tab"
+                                    aria-selected="false" aria-disabled="false" routerLink="/myRequest"> My Requests <i
+                                        _ngcontent-sdw-c4="" class="fal fa-chevron-right"></i>
+                                </a><!----></li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="4" class="nav-item"><a _ngcontent-sdw-c4="" href=""
+                                    ngbnavlink="" id="ngb-nav-3" class="nav-link" role="tab" aria-selected="false"
+                                    aria-disabled="false" routerLink="/"> New Request <i _ngcontent-sdw-c4=""
+                                        class="fal fa-chevron-right"></i>
+                                </a><!----></li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="5" class="nav-item"><a _ngcontent-sdw-c4="" href=""
+                                    ngbnavlink="" id="ngb-nav-4" class="nav-link" role="tab" aria-selected="false"
+                                    aria-disabled="false" routerLink="/contactDonations"> Contact <i
+                                        _ngcontent-sdw-c4="" class="fal fa-chevron-right">
+
+                                    </i></a><!----></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div _ngcontent-hii-c4="" class="col-lg-8">
+                <!--My association List By Id-->
+
+
+                <div class="row mt-5 mt-lg-0">
+                    <!-- Data -->
+
+                    <div class="container">
+                        <!-- Wishlist Table Start -->
+                        <table class="sigma_responsive-table">
+                            <thead>
+                                <tr>
+                                    <th class="remove-item"></th>
+                                    <th>Created</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>  
+                            <tbody>
+                                <!-- Data -->
+                                <tr *ngFor="let request of listRequest">
+                                    <td class="remove">
+                                        <button type="button" class="sigma_close close-danger remove-from-cart"
+                                        (click)="onDeleteRequest(request.idRequest)">
+                                            <span></span>
+                                            <span></span>
+                                        </button>
+                                    </td>
+                                    <td data-title="Total"> <strong>{{request.dateRequest}}</strong> </td>
+                                    <td data-title="Availability">
+                                        <span>{{request.nameRequest}}</span>
+                                        <!--<span class="sigma_product-stock instock" *ngIf="item.stock">In Stock</span>
+                                            <span class="sigma_product-stock outofstock" *ngIf="!item.stock">Out of Stock</span>-->
+                                    </td>
+                                    <td data-title="Total"> <strong>{{request.requestType}}</strong> </td>
+
+                                    <td data-title="Total"> <strong>{{request.statusRequest}}</strong> </td>
+                                    <td data-title="Total"> <strong>{{request.descriptionRequest}}</strong> </td>
+                                </tr>
+                                <!-- Data -->
+                            </tbody>
+                        </table>
+                        <!-- Wishlist Table End -->
+                        <!-- Share Wishlist Start -->
+
+                        <!-- Share Wishlist End -->
+                    </div>
+
+                    <!-- Data -->
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--footer-->
+<app-footer></app-footer>

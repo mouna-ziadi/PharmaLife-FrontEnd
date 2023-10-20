@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "linkText": "Home",
+        "child": true,
+        "submenu": [
+            {
+                "id": 1.1,
+                "link": "/",
+                "linkText": "Home v1"
+            },
+            {
+                "id": 1.2,
+                "link": "/home-v2",
+                "linkText": "Home v2"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "linkText": "Donations",
+        "child": true,
+        "submenu": [
+            {
+                "id": 3.1,
+                "link": "/myDonations",
+                "linkText": "Donations"
+            },
+            {
+                "id": 3.2,
+                "link": "/association",
+                "linkText": "Associations"
+            }
+          
+        ]
+    },
+    {
+        "id": 4,
+        "linkText": "Products and gifts",
+        "child": true,
+        "submenu": [
+            {
+                "id": 4.1,
+                "link": "/product-management",
+                "linkText": "Our products"
+            },
+            {
+                "id": 4.2,
+                "link": "/gift-management",
+                "linkText": "Available gifts"
+            },
+            {
+                "id": 4.3,
+                "link": "/reclamation-management",
+                "linkText": "My reclamations"
+            }
+
+        ]
+    },{
+        "id": 5,
+        "linkText": "Articles",
+        "child": true,
+        "submenu": [
+            {
+                "id": 5.1,
+                "link": "/article",
+                "linkText": "Articles"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "linkText": "Commands",
+        "child": true,
+        "submenu": [
+            {
+                "id": 6.1,
+                "link": "/myCommands",
+                "linkText": "myCommands"
+            }
+           
+
+        ]
+    },
+    {
+        "id": 7,
+        "linkText": "Events",
+        "child": true,
+        "submenu": [
+            {
+                "id": 7.1,
+                "link": "/event",
+                "linkText": "Events"
+            },
+            {
+                "id": 7.2,
+                "link": "/reservation",
+                "linkText": "Reservations"
+            }
+          
+        ]
+    },
+    {
+        "id": 8,
+        "link": "/contact",
+        "linkText": "Contact Us"
+    }
+]

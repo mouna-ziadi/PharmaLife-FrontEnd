@@ -1,0 +1,113 @@
+<app-header-two></app-header-two>
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>Add product</h1>
+        </div>
+
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+<br><br>
+<div class="container" style=" padding: 5px;box-sizing: border-box;margin:auto">
+    <form>
+       
+            <div class="mb-3" >
+                <div>
+                    <label for="name">Product name </label>
+                    <input placeholder="Product name"  type="text" class="form-control"
+                        id="name" [(ngModel)]="p.nameProduct" name="name" required #nameP="ngModel"
+                        pattern="^[^_!?:;*+-/]*$" style="width: 383px;">
+                </div>
+                <div *ngIf="nameP.invalid && (nameP.touched || nameP.dirty)">
+                    <div class="alert alert-danger" *ngIf="nameP.errors?.required" style="width: 383px;">Name
+                        product field is required</div>
+                    <div class="alert alert-danger" *ngIf="nameP.errors?.pattern" style="width: 383px;">Name product
+                        cannot contain caracters ! *
+                        / ? : ; - +</div>
+                </div>
+            </div>
+            <div class="mb-3" >
+                <label for="name">Category name </label>
+                <div>
+                    <select id="nameCategory" name="nameCategory" 
+                        [(ngModel)]="p.categoryProduct.nameCategory" required #nameC="ngModel"
+                        (change)="onSelected(p.categoryProduct.nameCategory)" style="width: 383px;">
+
+                        <option style="width: 383px;" *ngFor="let c of allCategories" [value]="c.nameCategory">{{c.nameCategory}}</option>
+
+                    </select>
+                </div>
+            </div>
+            <div *ngIf="nameC.invalid && (nameC.touched || nameC.dirty)" >
+                <div class="alert alert-danger" *ngIf="nameP.errors?.required" style="width: 383px;">Name category
+                    field is required</div>
+            </div>
+        
+        
+            <div class="mb-3">
+                <label for="price">Product price</label>
+                <input placeholder="Product price"  type="number" class="form-control"
+                    id="price" [(ngModel)]="p.priceProduct" #Pp='ngModel' name="price" required min="15" style="width: 383px;">
+            </div>
+            <div *ngIf="Pp.invalid && (Pp.touched || Pp.dirty)" >
+                <div class="alert alert-danger"  *ngIf="Pp.errors?.required" style="width: 383px;">Price product
+                    field is required</div>
+                <div class="alert alert-danger"   *ngIf="Pp.errors?.value" style="width: 383px;">Price product cannot
+                    be under 15 DT</div>
+            </div>
+            <div class="mb-3" >
+                <label for="quantity">Product quantity</label>
+                <input placeholder="Product quantity"  type="number" class="form-control"
+                    id="quantity" [(ngModel)]="p.quantityProduct" #Pq='ngModel' min="15" name="quantity"
+                    style="width: 383px;" required>
+            </div>
+            <div *ngIf="Pq.invalid && (Pq.touched || Pq.dirty)">
+                <div class="alert alert-danger" *ngIf="Pq.errors?.required" style="width: 383px;">Quantity product
+                    field is required</div>
+                <div class="alert alert-danger" *ngIf="Pq.errors?.min" style="width: 383px;">Quantity product cannot
+                    be equal to 0</div>
+            </div>
+        
+        
+            <div class="mb-3" >
+                <label for="description">Product description</label>
+                <textarea placeholder="Product description" type="text" class="form-control"
+                    id="description" [(ngModel)]="p.descriptionProduct" name="description" required #desP="ngModel"
+                    pattern="^[^_!?:;*+-/]*$" style="width: 383px;"></textarea>
+            </div>
+            <div *ngIf="desP.invalid && (desP.touched || desP.dirty)" >
+                <div class="alert alert-danger" style="width: 383px;" *ngIf="desP.errors?.required">Description
+                    product field is required</div>
+                <div class="alert alert-danger"  style="width: 383px;" *ngIf="desP.errors?.pattern">Description
+                    product cannot contain caracters ! *
+                    / ? : ; - +</div>
+            </div>
+            <div class="mb-3" >
+                <label for="expiration">To be consumed before</label>
+                <input  type="date" class="form-control" id="expiration"
+                    [(ngModel)]="p.expirationDateProduct" #dateP='ngModel' name="expiration" required style="width: 383px;">
+            </div>
+            <div *ngIf="dateP.invalid && (dateP.touched || dateP.dirty && getDate(p.expirationDateProduct))">
+                <div class="alert alert-danger" style="width: 383px;"  *ngIf="dateP.errors?.required">Please fill
+                    expriration date</div>
+                <div class="alert alert-danger" style="width: 383px;" *ngIf="dateP.errors?.value">Quantity product
+                    cannot be equal to 0</div>
+                <div class="alert alert-danger" style="width: 383px;"*ngIf="getDate(p.expirationDateProduct)">Expiration date should be higher than today's
+                    date</div>
+            </div>
+        
+        <br>
+        <div>
+
+            <button type="submit" class="btn btn-primary"   (click)="addProduct(p)">Add Product</button>
+        </div>
+    </form>
+</div>
+
+<app-footer></app-footer>

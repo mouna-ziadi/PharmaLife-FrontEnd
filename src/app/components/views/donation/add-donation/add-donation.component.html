@@ -1,0 +1,218 @@
+<app-header-two></app-header-two>
+<!--breadcrumbs-->
+
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>PharmaLIFE Donations</h1>
+        </div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/association" class="btn-link">All</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/myDonations" class="btn-link">MyDonations</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a routerLink="/addDonation" class="btn-link">New Donation</a>
+            </li>
+           
+        </ol>
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+
+<!--data-->
+
+<div class="section">
+    <div _ngcontent-hii-c4="" class="container">
+        <div _ngcontent-hii-c4="" class="row">
+
+
+            <!---liste des items-->
+
+            <div _ngcontent-hii-c4="" class="col-lg-4">
+                <div _ngcontent-hii-c4="" class="sigma_accordion style-13">
+                    <div _ngcontent-hii-c4="" class="sigma_tab-item style-4">
+                        <ul _ngcontent-sdw-c4="" class="nav nav-tabs" id="myTab" ngbnav="" role="tablist">
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="1" class="nav-item">
+                                <a _ngcontent-sdw-c4="" href="" ngbnavlink="" id="ngb-nav-0" class="nav-link" role="tab"
+                                    aria-selected="true" aria-disabled="false" aria-controls="ngb-nav-0-panel"
+                                    routerLink="/myDonations"> My
+                                    Donations
+                                    <i _ngcontent-sdw-c4="" class="fal fa-chevron-right"></i></a>
+                                <!---->
+                            </li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="2" class="nav-item">
+                                <a _ngcontent-sdw-c4="" href="" ngbnavlink="" id="ngb-nav-1" class="nav-link active"
+                                    role="tab" aria-selected="false" aria-disabled="false"
+                                    routerLink="/addDonation">New Donation
+                                    <i _ngcontent-sdw-c4="" class="fal fa-chevron-right"></i></a><!---->
+                            </li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="3" class="nav-item"><a _ngcontent-sdw-c4="" href=""
+                                    ngbnavlink="" id="ngb-nav-2" class="nav-link" role="tab" aria-selected="false"
+                                    aria-disabled="false"
+                                    routerLink="/collectDonations"> Collect <i _ngcontent-sdw-c4=""
+                                        class="fal fa-chevron-right"></i>
+                                </a><!----></li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="4" class="nav-item"><a _ngcontent-sdw-c4="" href=""
+                                    ngbnavlink="" id="ngb-nav-3" class="nav-link" role="tab" aria-selected="false"
+                                    aria-disabled="false"
+                                    routerLink="/donationGifts"> MyGifts <i _ngcontent-sdw-c4=""
+                                        class="fal fa-chevron-right"></i>
+                                </a><!----></li>
+                            <li _ngcontent-sdw-c4="" ng-reflect-_id="5" class="nav-item"><a _ngcontent-sdw-c4="" href=""
+                                    ngbnavlink="" id="ngb-nav-4" class="nav-link" role="tab" aria-selected="false"
+                                    aria-disabled="false"
+                                     routerLink="/contactDonations"> Contact <i _ngcontent-sdw-c4="" class="fal fa-chevron-right">
+
+                                    </i></a><!----></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div _ngcontent-hii-c4="" class="col-lg-8">
+                <!--Formulaire D'ajout d'une Donation-->
+
+                <form (ngSubmit)="onSubmit()">
+                    <div class="sigma_form style-7">
+                        <div class="form-block">
+                            <h4>New Donation:</h4>
+
+                            <div class="row">
+                              
+                                
+                                <div class="col-lg-6">
+
+                                    <input placeholder="nameDonation" style="max-width: 435px;" type="text"
+                                        class="form-control" id="name" [(ngModel)]="donation.nameDonation"
+                                        name="nameDonation" required #nameDonationA="ngModel" pattern="^[^_!?:;*+-/]*$" minlength="3"
+                                        maxlength="50">
+
+                                    <div *ngIf="nameDonationA.invalid && (nameDonationA.touched || nameDonationA.dirty)">
+                                        <div class="alert alert-danger" *ngIf="nameDonationA.errors?.required">Donation Name
+                                            field is required</div>
+                                        <div class="alert alert-danger" *ngIf="nameDonationA.errors?.pattern">Name Donation
+                                            cannot contain caracters ! *
+                                            / ? : ; - +</div>
+                                        <div class="alert alert-danger" *ngIf="nameDonationA.errors?.minlength">min length is
+                                            3 caracters</div>
+                                        <div class="alert alert-danger" *ngIf="nameDonationA.errors?.maxlength">max
+                                            length is 50 caracters</div>
+                                    </div>
+                                </div>
+
+
+                               
+                                <div class="col-lg-6">
+                                    <select class="form-control" id="donationType"
+                                        [(ngModel)]="donation.donationType" name="donationType"
+                                        placeholder="select donationType">
+                                       
+                                        <option value="Money" ng-reflect-value="Money">
+                                            Money</option>
+                                        <option value="Drugs" ng-reflect-value="Drugs">Drugs
+                                        </option>
+                                        <option value="Materials" ng-reflect-value="Materials">Materials
+                                        </option>
+                                       
+                                    </select>
+                                </div>
+
+                                <!--<div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" id="donationType"
+                                            [(ngModel)]="donation.donationType" placeholder="Type" name="donationType">
+                                    </div>
+                                </div>-->
+
+                                <div class="form-group col-xl-12">
+
+                                    <!--<label>Country <span
+                                            class="text-danger">*</span>
+                                    </label>-->
+                                   
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <input type="number" class="form-control" id="quantityDonation"
+                                            [(ngModel)]="donation.quantityDonation" placeholder="Quantity"
+                                            name="quantityDonation">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" id="imageDonation"
+                                            [(ngModel)]="donation.imageDonation" placeholder="Image"
+                                            name="imageDonation">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-block">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="descriptionDonation"
+                                            placeholder="Description" name="descriptionDonation"
+                                            [(ngModel)]="donation.descriptionDonation">
+                                    </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mt-2"><input formcontrolname="condition" id="checkbox"
+                                type="checkbox" value="accept" ng-reflect-name="condition"
+                                class="ng-untouched ng-pristine ng-invalid"><label class="mb-0" for="checkbox">I accept
+                                <a href="#">Terms</a> and <a href="#">conditions</a> and general
+                                policy</label>
+                        </div>
+
+
+                        <!--Button-->
+                        <li class="d-flex align-items-center justify-content-between">
+                            <button class="sigma_btn btn-block btn-sm mt-4" type="submit">
+                                Confirm and Add <i class="fal fa-arrow-right ml-3"></i>
+                            </button>
+                        </li>
+
+
+
+                    </div>
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!--footer-->
+<app-footer></app-footer>

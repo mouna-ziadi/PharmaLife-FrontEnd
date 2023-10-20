@@ -1,0 +1,58 @@
+<app-header-two></app-header-two>
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>My reclamations</h1>
+        </div>
+
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+
+<br><br>
+
+<div class="col-md-8 col-lg-9 " style="justify-content: center; align-items: center;    margin-left: 30px;" >
+   
+        <div class="row">
+            <!-- Data -->
+            <div class="col-lg-3 col-md-6" *ngFor="let item of myReclamations ">
+                <div class="sigma_product style-8">
+                    <div class="sigma_product-thumb">
+                        <a> <img src="../../../../assets/img/ProductsAndGiftManagement/{{item.product.imageProduct}}"
+                                height="140" width="400"></a>
+
+                    </div>
+                    <div class="sigma_product-body">
+
+                        <h5 class="sigma_product-title"> <a>{{item.product.nameProduct}}</a> </h5>
+                        <div class="sigma_rating">
+                            <i>{{item.descriptionReclamation}}</i>
+                            
+                        </div>
+                        <div class="sigma_rating">
+                    
+                            <i>Reclaimed  on {{item.dateReclamation}}</i>
+                        </div>
+                        <br>
+
+                        <span>
+                            <i *ngIf="item.archived"  class="fa fa-spinner" ><button class="btn btn-info">In progress</button></i>
+                            <i *ngIf="!item.archived"  type="button"  class="fa fa-check" ><button class="btn btn-success">Done</button></i>
+                      
+                              
+                              </span>
+                         
+                    </div>
+
+                </div>
+            </div>
+            <!-- Data -->
+        </div>
+    </div>
+
+<app-footer></app-footer>

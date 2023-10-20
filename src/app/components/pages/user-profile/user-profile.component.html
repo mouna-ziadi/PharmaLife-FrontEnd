@@ -1,0 +1,128 @@
+
+<app-header-two></app-header-two>
+<app-breadcrumbs></app-breadcrumbs>
+<!--
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address  {{editUser?.idUser }}  </label>
+    <input type="email" id="lastName" [(ngModel)]="user.lastName" name="lastName"  class="form-control" aria-describedby="emailHelp" >
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+</div>
+-->
+
+
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2 >   </h2>
+        <input type="hidden" [(ngModel)]="user.idUser" name="idUser" class="form-control" id="idUser" placeholder="idUser">
+        <hr>
+        <form >
+          <div class="form-group row">
+            <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="firstName"  [(ngModel)]="user.firstName" name="firstName" [disabled]="!editing">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="lastName"   [(ngModel)]="user.lastName" name="lastName" [disabled]="!editing">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="gender"  [(ngModel)]="user.gender" name="gender" [disabled]="!editing">
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="birthDate" class="col-sm-2 col-form-label">Birth Date</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="birthDate"  [(ngModel)]="user.birthDate" name="birthDate" [disabled]="!editing">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="address" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="address"  [(ngModel)]="user.address" name="address" [disabled]="!editing">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="city" class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="city"  [(ngModel)]="user.city" name="city" [disabled]="!editing">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="email"  [(ngModel)]="user.email" name="email" [disabled]="!editing">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+            <div class="col-sm-10">
+            <input type="tel" class="form-control" id="phoneNumber"  [(ngModel)]="user.phoneNumber" name="phoneNumber" [disabled]="!editing">
+            </div>
+            </div>
+            <div class="form-group row">
+            <label for="password" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+            <input type="password" class="form-control" id="password"  [(ngModel)]="user.password" name="password" [disabled]="!editing">
+            </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="role" class="col-sm-2 col-form-label">Role</label>
+              <div class="col-sm-10">
+                <select class="form-control" id="role"  [(ngModel)]="user.role" name="role" [disabled]="!editing">
+                  <option value="Patient">Patient</option>
+                  <option value="Donator">Donator</option>
+                  <option value="AssociationMember">Association Member</option>
+                  <option value="DrugsProvider">Drugs Provider</option> 
+                </select>
+              </div>
+            </div>
+
+
+
+            <div class="form-group" style="float:right; display: none;">
+              <label for="enabled" style="color: green;font-size: 17px;"><i class="fa fa-venus-mars"></i> Enabled</label><br>
+             <input type="radio" id="true"  [(ngModel)]="user.enabled"  name="enabled" value="true">
+             <label for="true" type="hidden">True</label>
+             <input type="radio" id="false"  [(ngModel)]="user.enabled" name="enabled" value="false">
+             <label for="false" >False</label>
+         </div>
+
+            <button type="button" class="btn btn-primary" (click)="edit()">Edit</button>
+            <button type="submit" class="btn btn-success" (click)="onUpdateUser()" [disabled]="!editing">Save</button>
+            </form>
+            </div>
+            
+              </div>
+            </div>
+  
+       
+
+
+<app-footer></app-footer>

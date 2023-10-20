@@ -1,0 +1,54 @@
+<app-header-two></app-header-two>
+<div class="sigma_subheader style-5 bg-gray">
+    <div class="container">
+
+        <div class="sigma_subheader-inner">
+            <h1>Available gifts</h1>
+        </div>
+
+
+
+    </div>
+    <img src="assets/img/subheader-br.png" class="br" alt="subheader">
+    <img src="assets/img/subheader-bl.png" class="bl" alt="subheader">
+    <img src="assets/img/subheader-tr.png" class="tr" alt="subheader">
+</div>
+
+<br><br>
+<div class="container" style=" padding: 5px;box-sizing: border-box;margin:auto">
+    <h2>My gifts</h2>
+    <div *ngFor="let gift of mygifts">
+        <div class="container" style="margin-left: 400px;">
+          
+            <p style="font-weight: bold;">Description: {{gift.description}}</p>
+            <p style="font-weight: bold;">Begins at: {{gift.beginsAtGift}}</p>
+            <p style="font-weight: bold;">Ends at: {{gift.endsAtGift}}</p>
+        </div>
+        <div>
+            <table>
+                <thead class="">
+                    <th>Name product</th>
+                    <th>Description product</th>
+                    <th>Category product</th>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of gift.productsGift">
+                        <td>{{product.nameProduct}}</td>
+                        <td>{{product.descriptionProduct}}</td>
+                        <td>{{product.categoryProduct.nameCategory}}</td>
+                        <button (click)="removeProductFromGift(product)" style="margin-left: 20px; padding: 0.25rem 1.5rem;font-size: 0.75rem;"> 
+                            <i class="far fa-trash"aria-hidden="false" style="margin-left: -10px;"></i> </button>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<app-footer></app-footer>

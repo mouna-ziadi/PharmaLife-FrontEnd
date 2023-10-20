@@ -1,0 +1,92 @@
+<div class="sidebar-style-8">
+    <div class="section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 ">
+                    <!-- style 7 -->
+                    <article class="sigma_post style-7" [ngClass]="
+                    item.format === 'video' ? 'post-format-video':'' || 
+                    item.format === 'quote' ? 'post-format-quote':'' ||
+                    item.format === 'audio' ? 'post-format-audio':'' ||
+                    item.format === 'link' ? 'post-format-link':''
+                    " *ngFor="let item of blogblock | paginate: { itemsPerPage: 4, currentPage: page }">
+                        <!-- Standard -->
+                        <div class="sigma_post-thumb"
+                            *ngIf="item.format === 'standard' || item.format === 'video' || item.format === ''">
+                            <a routerLink="/blog-details/{{item.id}}" class="w-100">
+                                <img [src]="item.image[0]" [alt]="item.title">
+                            </a>
+                            <!-- Video -->
+                            <a href="{{item.video}}" class="sigma_video-btn popup-video"
+                                *ngIf="item.format === 'video' && item.video != '' ">
+                                <i class="far fa-play"></i>
+                            </a>
+                            <!-- video -->
+                        </div>
+                        <!-- Standard -->
+                        <!-- Quote -->
+                        <blockquote *ngIf="item.format === 'quote' && item.quote != '' && item.quoteauthor != ''">
+                            <h5>{{item.quote}}</h5>
+                            <cite>
+                                <span>{{getNameInitials(item.quoteauthor)}}</span>
+                                {{item.quoteauthor}}
+                            </cite>
+                        </blockquote>
+                        <!-- Quote -->
+                        <!-- Audio -->
+                        <div class="sigma_post-thumb" *ngIf="item.format === 'audio' && item.audio != '' ">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" [src]="sanitnizeAudioURL(item.audio)">
+                                </iframe>
+                            </div>
+                        </div>
+                        <!-- Audio -->
+                        <!-- Link -->
+                        <div class="sigma_post-body" *ngIf="item.format === 'link' && item.link != ''">
+                            <div class="sigma_post-content">
+                                <h5>{{item.title}}</h5>
+                                <div class="sigma_post-meta">
+                                    <a href="{{item.link}}">
+                                        <i class="fal fa-link"></i>
+                                        {{item.link}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Link -->
+                        <div class="sigma_post-body">
+                            <div class="sigma_post-content">
+                                <h5>
+                                    <a routerLink="/blog-details/{{item.id}}">{{item.title}}</a>
+                                </h5>
+                                <p>{{item.shorttext}}</p>
+                                <div class="sigma_post-meta">
+                                    <ul>
+                                        <li class="author" *ngFor="let author of getAuthor(item.author)">
+                                            <i class="fal fa-user-circle"></i>
+                                            <a routerLink="/blog/author/{{author.id}}">{{author.name}}</a>
+                                        </li>
+                                        <li>
+                                            <i class="fal fa-calendar-alt"></i>
+                                            on <a routerLink="/blog-details/{{item.id}}" class="ml-2">{{item.postdate}}</a>
+                                        </li>
+                                        <li>
+                                            <i class="fal fa-comment-dots"></i>
+                                            <a routerLink="/blog-details/{{item.id}}">{{item.reviews.length}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Pagination -->
+                    <pagination-controls (pageChange)="page = $event" class="mb-md-80 d-block" responsive="true" previousLabel="<" nextLabel=">">
+                    </pagination-controls>
+                </div>
+                <div class="col-lg-4">
+                    <app-blog-sidebar></app-blog-sidebar>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
